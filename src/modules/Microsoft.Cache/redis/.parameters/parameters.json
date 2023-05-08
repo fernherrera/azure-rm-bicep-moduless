@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "value": "<<namePrefix>>-az-redis-001"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "lock": {
+            "value": "CanNotDelete"
+        },
+        "roleAssignments": {
+            "value": [
+                {
+                    "roleDefinitionIdOrName": "Reader",
+                    "principalIds": [
+                        "<<deploymentSpId>>"
+                    ]
+                }
+            ]
+        },
+        "systemAssignedIdentity": {
+            "value": true
+        },
+        "userAssignedIdentities": {
+            "value": {
+                "/subscriptions/<<subscriptionId>>/resourcegroups/validation-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/adp-<<namePrefix>>-az-msi-x-001": {}
+            }
+        },
+        "skuName": {
+            "value": "Standard"
+        },
+        "family": {
+            "value": "C"
+        },
+        "capacity": {
+            "value": 1
+        },
+        "enableNonSslPort": {
+            "value": true
+        },
+        "minimumTlsVersion": {
+            "value": "1.2"
+        },
+        "publicNetworkAccess": {
+            "value": "Enabled"
+        },
+        "redisVersion": {
+            "value": "6"
+        },
+        "replicasPerMaster": {
+            "value": 1
+        },
+        "replicasPerPrimary": {
+            "value": 1
+        }
+    }
+}
